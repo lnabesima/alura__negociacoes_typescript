@@ -4,6 +4,7 @@ import { NegociacoesView } from '../views/negociacoes-view.js';
 import { MensagemView } from '../views/mensagem-view.js';
 import { DiasDaSemana } from '../enums/dias-da-semana.js';
 import { checkRuntime } from '../decorators/checkRuntime.js';
+import { inspect } from '../decorators/inspect.js';
 
 export class NegociacaoController {
   private inputData: HTMLInputElement;
@@ -23,6 +24,7 @@ export class NegociacaoController {
   }
 
   @checkRuntime()
+  @inspect()
   adiciona(): void {
     const negociacao = Negociacao.criaDe(
       this.inputData.value,
