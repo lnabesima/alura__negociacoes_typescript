@@ -1,3 +1,5 @@
+import { checkRuntime } from '../decorators/checkRuntime.js';
+
 export abstract class View<Type> {
   protected element: HTMLElement;
   private escapar: boolean = false;
@@ -16,6 +18,7 @@ export abstract class View<Type> {
 
   protected abstract template(model: Type): string;
 
+  @checkRuntime()
   update(model: Type): void {
     let template = this.template(model);
     if ((this.escapar = true)) {
