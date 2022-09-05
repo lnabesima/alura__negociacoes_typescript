@@ -7,6 +7,7 @@ import { checkRuntime } from '../decorators/checkRuntime.js';
 import { inspect } from '../decorators/inspect.js';
 import { domInjector } from '../decorators/domInjector.js';
 import { NegociacoesService } from '../services/negociacoesServices.js';
+import { imprimir } from '../utils/imprimir.js';
 
 export class NegociacaoController {
   @domInjector('#data')
@@ -39,6 +40,7 @@ export class NegociacaoController {
       return;
     }
     this.negociacoes.adiciona(negociacao);
+    imprimir(negociacao);
     this.atualizaView();
     this.limparFormulario();
   }
